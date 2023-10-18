@@ -1,0 +1,266 @@
+{
+"status": "ok",
+"totalResults": 69,
+"articles": [
+{
+"source": {
+"id": "cnn",
+"name": "CNN"
+},
+"author": "Parija Kavilanz, John Miller",
+"title": "Dick's Sporting Goods blames 'increasingly serious' theft problem for profit plunge - CNN",
+"description": "Dick’s Sporting Goods warned Tuesday that retail theft is damaging its business and would lead to lower annual profits.",
+"url": "https://www.cnn.com/2023/08/22/business/dicks-retail-theft/index.html",
+"urlToImage": "https://media.cnn.com/api/v1/images/stellar/prod/230822074505-01-dicks-sporting-goods-081523.jpg?c=16x9&q=w_800,c_fill",
+"publishedAt": "2023-08-22T16:06:00Z",
+"content": "Dicks Sporting Goods warned Tuesday that retail theft is damaging its business and would lead to lower annual profits.\r\nThe sporting goods and athletic clothing seller reported second-quarter results… [+7061 chars]"
+},
+{
+"source": {
+"id": "reuters",
+"name": "Reuters"
+},
+"author": "David Shepardson",
+"title": "US FAA holding runway safety meetings after close call incidents - Reuters",
+"description": "The U.S. Federal Aviation Administration said on Tuesday it will hold runway safety meetings at 90 airports over the next few weeks after a series of troubling close-call aviation incidents.",
+"url": "https://www.reuters.com/business/aerospace-defense/us-faa-holding-runway-safety-meetings-after-close-call-incidents-2023-08-22/",
+"urlToImage": "https://www.reuters.com/resizer/-jt2hz-8mB3Il6Crxoex3mcxiZc=/1200x628/smart/filters:quality(80)/cloudfront-us-east-2.images.arcpublishing.com/reuters/C2ZZMXHIVNML3OKKEAV6DC4MRA.jpg",
+"publishedAt": "2023-08-22T15:40:00Z",
+"content": "WASHINGTON, Aug 22 (Reuters) - The U.S. Federal Aviation Administration said on Tuesday it will hold runway safety meetings at 90 airports over the next few weeks after a series of troubling close-ca… [+2132 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Hollywood Reporter"
+},
+"author": "Erik Hayden",
+"title": "The Weather Company Sold to Private Equity Firm - Hollywood Reporter",
+"description": "The digital assets of The Weather Channel, owned by IBM since 2016, will form a standalone company backed by investment firm Francisco Partners.",
+"url": "https://www.hollywoodreporter.com/business/business-news/the-weather-company-sold-francisco-partners-1235571884/",
+"urlToImage": "https://www.hollywoodreporter.com/wp-content/uploads/2023/08/GettyImages-1469341609.jpg?w=1024",
+"publishedAt": "2023-08-22T15:33:45Z",
+"content": "The Weather Company has found new ownership in private equity.\r\nIBM, which has owned the digital products of The Weather Channel and brands like Weather Underground since 2016, has sold the assets to… [+2281 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Healthday.com"
+},
+"author": "Cara Murez",
+"title": "Three Deaths Linked to Listeria-Tainted Milkshakes From Restaurant in Washington State - HealthDay News",
+"description": "TUESDAY, Aug. 22, 2023 (HealthDay News) -- A strain of listeria bacteria found in milkshakes at a restaurant in Washington state has been linked to six hospitalizations and three deaths.The milkshakes were sold at Frugals restaurant in Tacoma, Wash.Only the T…",
+"url": "https://consumer.healthday.com/listeria-2664240695.html",
+"urlToImage": "https://consumer.healthday.com/media-library/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8zNDk5OTgwNS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTczMTIwMzI1MX0.OW3thHuwWZ0V8Jb5ufK4mX9ntm410Bo_hhQFPri8wWQ/image.jpg?width=1200&height=600&coordinates=0%2C600%2C0%2C601",
+"publishedAt": "2023-08-22T15:20:14Z",
+"content": "TUESDAY, Aug. 22, 2023 (HealthDay News) -- A strain of listeria bacteria found in milkshakes at a restaurant in Washington state has been linked to six hospitalizations and three deaths.\r\nThe milksha… [+2072 chars]"
+},
+{
+"source": {
+"id": "al-jazeera-english",
+"name": "Al Jazeera English"
+},
+"author": "Al Jazeera",
+"title": "Wind-powered cargo ship sets sail on maiden voyage - Al Jazeera English",
+"description": "Pyxis Ocean will sail from Singapore and head to Brazil and is likely to transport a cargo of grain to Denmark.",
+"url": "https://www.aljazeera.com/news/2023/8/22/wind-powered-cargo-ship-sets-sail-on-maiden-voyage",
+"urlToImage": "https://www.aljazeera.com/wp-content/uploads/2023/08/RC24S2ASCYXP-1692688423.jpg?resize=1920%2C1440",
+"publishedAt": "2023-08-22T15:18:48Z",
+"content": "A cargo ship fitted with special sails set off on its first voyage aiming to study how harnessing wind power can cut emissions and energy usage in the shipping sector.\r\nThe maritime industry which ac… [+1633 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "WCVB Boston"
+},
+"author": "Phil Tenser",
+"title": "Wegmans customers' credit cards charged twice for groceries on Aug. 16, company confirms - WCVB Boston",
+"description": "Customers who used credit cards at more than 100 grocery stores were impacted on one day last week.",
+"url": "https://www.wcvb.com/article/wegmans-customers-charged-double-credit-card-transactions-august-16/44877997",
+"urlToImage": "https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/wegmans-self-checkout-ap-64e4c7ee5f740.jpg?crop=1.00xw:0.750xh;0,0.150xh&resize=1200:*",
+"publishedAt": "2023-08-22T15:05:00Z",
+"content": "WESTWOOD, Mass. —Customers of the popular Wegmans supermarket chain, which has five locations in Massachusetts, may want to check their credit card statements after the company confirmed that many we… [+1393 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Barron's"
+},
+"author": "Joe Woelfel, Emily Dattilo",
+"title": "Dick's, Lowe's, VinFast, Macy's, Novavax, Nvidia, and More Market Movers - Barron's",
+"description": "Dick's cuts its earnings outlook, Lowe's reports second-quarter earnings that top analysts' estimates, VinFast shares skyrocket, and Macy's says it's taking a cautious approach to guidance.",
+"url": "https://www.barrons.com/articles/stock-market-movers-ef31480c",
+"urlToImage": "https://images.barrons.com/im-344208/social",
+"publishedAt": "2023-08-22T14:54:00Z",
+"content": null
+},
+{
+"source": {
+"id": "bloomberg",
+"name": "Bloomberg"
+},
+"author": null,
+"title": "Charles Schwab Raising Debt After News of Job, Real Estate Cuts - Bloomberg",
+"description": null,
+"url": "https://www.bloomberg.com/news/articles/2023-08-22/charles-schwab-raising-debt-after-news-of-job-real-estate-cuts",
+"urlToImage": null,
+"publishedAt": "2023-08-22T14:41:40Z",
+"content": "To continue, please click the box below to let us know you're not a robot."
+},
+{
+"source": {
+"id": "usa-today",
+"name": "USA Today"
+},
+"author": ", USA TODAY",
+"title": "Are salaried workers required to cross a picket line during a strike? - USA TODAY",
+"description": "UAW contract talks with the Detroit 3 have salaried workers wondering about their rights during a strike and what companies can compel them to do",
+"url": "https://www.usatoday.com/story/money/2023/08/22/salaried-employees-during-union-strike-auto-work/70649062007/",
+"urlToImage": "https://www.gannett-cdn.com/presto/2019/10/26/PDTF/1815f338-40b1-4444-bb0a-3175777ce433-102519_gm_strike_over_rg_02.JPG?auto=webp&crop=2399,1350,x0,y122&format=pjpg&width=1200",
+"publishedAt": "2023-08-22T14:31:04Z",
+"content": "DETROIT Amid talk of labor strikes, many salaried white-collar workers are wondering whether they have the right to not cross a picket line, in support of lower-paid colleagues.\r\nThe Detroit Free Pre… [+7847 chars]"
+},
+{
+"source": {
+"id": "the-wall-street-journal",
+"name": "The Wall Street Journal"
+},
+"author": "Charley Grant, David Benoit, Patricia Kowsmann, Quentin Webb, Eric Wallerstein, Dean Seal, Megumi Fujikawa, Heard Editors",
+"title": "Stock Market News Today: Dow, S&P 500 Open Higher; Microsoft, Tesla Stocks in Focus - The Wall Street Journal",
+"description": "Live updates on what's moving markets, including the Dow Jones Industrial Average, S&P 500 and Nasdaq Composite",
+"url": "https://www.wsj.com/livecoverage/stock-market-today-dow-jones-08-22-2023",
+"urlToImage": "https://images.wsj.net/im-785590/social",
+"publishedAt": "2023-08-22T14:06:00Z",
+"content": "The Nasdaq Composite kept climbing Tuesday, extending its lead this week over other big stock indexes.\r\nGains by names from Tesla to Alphabet to Microsoft lifted the tech-heavy gauge and limited loss… [+1352 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Forbes"
+},
+"author": "Derek Saul",
+"title": "Nvidia Stock Hits All-Time High After 315% Surge—Easily Outpacing Its Peers - Forbes",
+"description": "Led by the “godfather of AI,” Nvidia is expected to report a quadrupling of EBITDA this quarter.",
+"url": "https://www.forbes.com/sites/dereksaul/2023/08/22/nvidia-stock-hits-all-time-high-after-315-surge-easily-outpacing-its-peers/",
+"urlToImage": "https://imageio.forbes.com/specials-images/imageserve/6475f9363cda87b81f945370/0x0.jpg?format=jpg&crop=5000,2814,x0,y258,safe&width=1200",
+"publishedAt": "2023-08-22T14:05:24Z",
+"content": "Shares of Nvidia opened Tuesday at their highest level on record, while investors pile into the freshly minted trillion-dollar company as it translates the artificial intelligence boom into stock gai… [+2354 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Barron's"
+},
+"author": "Jack Denton",
+"title": "Baidu Isn’t Alibaba. Earnings Beat From China’s Google Cuts Through Macro Gloom. - Barron's",
+"description": "CEO Robin Li said artificial intelligence represents a \"significant market opportunity\" for the big tech company.",
+"url": "https://www.barrons.com/articles/baidu-earnings-stock-price-399e375c",
+"urlToImage": "https://images.barrons.com/im-384397/social",
+"publishedAt": "2023-08-22T14:03:00Z",
+"content": null
+},
+{
+"source": {
+"id": "bloomberg",
+"name": "Bloomberg"
+},
+"author": null,
+"title": "Treasury Market Selloff Means 6% Yield 'Isn't a Crazy Number' - Bloomberg",
+"description": null,
+"url": "https://www.bloomberg.com/news/newsletters/2023-08-22/treasury-market-selloff-means-6-yield-isn-t-a-crazy-number",
+"urlToImage": null,
+"publishedAt": "2023-08-22T14:01:39Z",
+"content": "To continue, please click the box below to let us know you're not a robot."
+},
+{
+"source": {
+"id": null,
+"name": "CNBC"
+},
+"author": "Diana Olick",
+"title": "Home sales fall again in July, as supply drops to near quarter-century low - CNBC",
+"description": "Home sales fell month-to-month in all regions except the West, and dropped the most in the Northeast.",
+"url": "https://www.cnbc.com/2023/08/22/home-sales-drop-again-in-july-as-supply-drops-again.html",
+"urlToImage": "https://image.cnbcfm.com/api/v1/image/107271161-1689261479198-gettyimages-1529792261-AFP_33P23JN.jpeg?v=1692712818&w=1920&h=1080",
+"publishedAt": "2023-08-22T14:00:18Z",
+"content": "Sales of previously owned homes dropped 2.2% in July from June to a seasonally-adjusted, annualized rate of 4.07 million units, according to the National Association of Realtors. \r\nSales were 16.6% l… [+2649 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "Jalopnik"
+},
+"author": "Owen Bellwood",
+"title": "Alaska Airlines Plane Punctures Wing In Rough Landing - Jalopnik",
+"description": "The flight from Seattle made a rough landing in Santa Ana as tropical storm Hilary shook California",
+"url": "https://jalopnik.com/alaska-airlines-flight-punctures-wing-in-rough-landing-1850761245",
+"urlToImage": "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/fdec8e3a64d18730f52c1b7448c2c356.jpg",
+"publishedAt": "2023-08-22T13:45:00Z",
+"content": "California has been through the ringer this weekend as tropical storm Hilary made landfall in the south of the state, bringing high winds and severe rainfall to some areas. The storm brought down pow… [+1945 chars]"
+},
+{
+"source": {
+"id": "the-wall-street-journal",
+"name": "The Wall Street Journal"
+},
+"author": "Dean Seal",
+"title": "Macy's Revenue Dips as In-Store, Digital Sales Fall - The Wall Street Journal",
+"description": "Bloomingdale’s owner maintains cautious earnings outlook as consumer spending sputters",
+"url": "https://www.wsj.com/business/retail/macys-m-q2-earnings-report-2023-37d2f492",
+"urlToImage": "https://images.wsj.net/im-838537/social",
+"publishedAt": "2023-08-22T13:40:00Z",
+"content": null
+},
+{
+"source": {
+"id": null,
+"name": "CNBC"
+},
+"author": "Ryan Browne",
+"title": "Coinbase takes stake in stablecoin firm Circle, shuts down joint venture as it sees 'regulatory clarity' - CNBC",
+"description": "Cryptocurrency exchange Coinbase is taking a stake in Circle, the issuer of the USDC stablecoin.",
+"url": "https://www.cnbc.com/2023/08/22/coinbase-takes-stake-in-stablecoin-firm-circle-shuts-down-usdc-consortium.html",
+"urlToImage": "https://image.cnbcfm.com/api/v1/image/107253518-1686241270742-gettyimages-1046001902-775238327TC007_Coinbase_Cry.jpeg?v=1692711546&w=1920&h=1080",
+"publishedAt": "2023-08-22T13:39:06Z",
+"content": "Cryptocurrency exchange Coinbase is taking a stake in Circle, the issuer of the USDC stablecoin, signifying a closer relationship between the two crypto heavyweights.\r\nThe two companies also said the… [+2642 chars]"
+},
+{
+"source": {
+"id": "techcrunch",
+"name": "TechCrunch"
+},
+"author": "Kyle Wiggers",
+"title": "Meta releases an AI model that can transcribe and translate close to 100 languages - TechCrunch",
+"description": "Meta has released an AI model, SeamlessM4T, that can translate and transcribe across around 100 languages in total.",
+"url": "https://techcrunch.com/2023/08/22/meta-releases-an-ai-model-that-can-transcribe-and-translate-close-to-100-languages/",
+"urlToImage": "https://techcrunch.com/wp-content/uploads/2021/06/GettyImages-1256252051.jpg?resize=1200,750",
+"publishedAt": "2023-08-22T13:31:22Z",
+"content": "In its quest to develop AI that can understand a range of different dialects, Meta has created an AI model, SeamlessM4T, that can translate and transcribe close to 100 languages across text and speec… [+7435 chars]"
+},
+{
+"source": {
+"id": null,
+"name": "CNBC"
+},
+"author": "Robert Frank",
+"title": "Ferrari CEO says nearly a third of new buyers are under 40, even as wait lists grow - CNBC",
+"description": "Benedetto Vigna said that despite limited supply, the company continues to expand its reach among younger, new clients.",
+"url": "https://www.cnbc.com/2023/08/22/ferrari-ceo-benedetto-new-buyers-under-40.html",
+"urlToImage": "https://image.cnbcfm.com/api/v1/image/107289955-1692705080368-gettyimages-1247104065-ITALY_FERRARI.jpeg?v=1692709758&w=1920&h=1080",
+"publishedAt": "2023-08-22T13:09:18Z",
+"content": "Despite a waiting list of three years for some of its cars, Ferrari's CEO said the company has no plans to supercharge production to meet demand.\r\n\"We are a brand that is not looking for volume,\" Fer… [+3388 chars]"
+},
+{
+"source": {
+"id": "techcrunch",
+"name": "TechCrunch"
+},
+"author": "Sarah Perez",
+"title": "It’s official: Threads launches its highly anticipated web app - TechCrunch",
+"description": "Starting today, Instagram Threads will begin the rollout of one of its most-requested features: the ability to use the service via the web, while logged",
+"url": "https://techcrunch.com/2023/08/22/its-official-threads-launches-its-highly-anticipated-web-app/",
+"urlToImage": "https://techcrunch.com/wp-content/uploads/2023/08/threads-desktop-GettyImages-1524135861.jpg?resize=1200,800",
+"publishedAt": "2023-08-22T13:00:28Z",
+"content": "Starting today, Instagram Threads will begin the rollout of one of its most-requested features: the ability to use the service via the web, while logged in. At launch, Threads users will be able to p… [+5824 chars]"
+}
+]
+}
