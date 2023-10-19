@@ -7,8 +7,8 @@ const  Navbar =()=> {
   
     return (
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+        <div className="container-fluid nav-scroller py-1 mb-3 border-bottom">
+          <Link className="nav-item  navbar-brand nav-link link-body-emphasis py-1" to="/">
             Top-Star News
           </Link>
           <button
@@ -22,25 +22,25 @@ const  Navbar =()=> {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+          <div className="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul className="navbar-nav nav  justify-content-between me-auto mb-2 mb-lg-0">
+              <li className="nav-item nav-link nav-underline link-body-emphasis">
                 <Link className="nav-link" to="/business">Business</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/entertainment">entertainment</Link>
+              <li className="nav-item nav-underline nav-link link-body-emphasis">
+                <Link className="nav-link" to="/entertainment">Entertainment</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item nav-underline nav-link link-body-emphasis">
                 <Link className="nav-link" to="/food">Food</Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item nav-link nav-underline  link-body-emphasis">
                 <Link className="nav-link" to="/health">Health</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/sports">sport</Link>
+              <li className="nav-item nav-link nav-underline link-body-emphasis">
+                <Link className="nav-link" to="/sports">Sport</Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/science">science</Link>
+              <li className="nav-item nav-link nav-underline link-body-emphasis">
+                <Link className="nav-link" to="/science">Science</Link>
               </li>
             </ul>
             <form className="d-flex" role="search">

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./component/Navbar";
 import News from "./component/News";
+import "./App.css"
 // import axios from "axios";
  
 const App = () => {

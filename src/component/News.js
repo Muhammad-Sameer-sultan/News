@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
+import TopNews from './TopNews'
 import axios from "axios";
 
 
@@ -19,9 +20,12 @@ const News=()=> {
   const [news, setnews] = useState([]);
   const location = useLocation()
   useEffect(() => {
+    console.log("mylocation",location.pathname)
+
     const fetchData = async () => {
       try {
         const category = location.pathname.slice(1);
+        console.log(category);
         let fetchedNews = [];
   
         switch (category) {
@@ -74,9 +78,13 @@ const News=()=> {
             }
             break;
           default:
-            // Default case or handle other categories
-            fetchedNews = await fetchNewsByCategory('general');
-            settopnews(fetchedNews);
+            if (topnews.length === 0) {
+              fetchedNews = await fetchNewsByCategory("top");
+              settopnews(fetchedNews);
+            } else {
+              fetchedNews = topnews;
+            }
+
             break;
         }
   
@@ -91,7 +99,7 @@ const News=()=> {
   
   const fetchNewsByCategory = async (category) => {
     try {
-      const response = await axios.get(`https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk&category=${category}`);
+      const response = await axios.get(`https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk&language=en&category=${category}`);
       const newsData = response.data;
       console.log(category, newsData.results)
       return newsData.results;
@@ -100,7 +108,7 @@ const News=()=> {
       return [];
     }
   };
-  
+
   
 
  
@@ -113,24 +121,31 @@ const News=()=> {
 
        
         <div className="container">
-        {
-          <div className="row -3">
+        {location.pathname !=="/"?
+         ( <div className="row -3">
             
-            {news.map((element) => {
+         {news.map((element) => {
 
 if (element) {
 return (
-  <div className="col-md-4" key={element.article_id}>
-    <Newsitem
-      title={element.title ? element.title.slice(0, 30) : ""}
-      description={element.description ? element.description.slice(0, 88) : ""}
-      imgUrl={element.image_url? element.image_url : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"}
-      newsUrl={element.link ? element.link : ""}
-      author={element.creator ? element.creator : ""}
-      date={element.pubDate? element.pubDate : ""}
-      source={element.source_id && element.source_id ? element.source_id : ""}
-    />
-  </div>
+<div className="col-md-4" key={element.article_id}>
+
+
+   <Newsitem
+   title={element.title ? element.title.slice(0, 30) : ""}
+   description={element.description ? element.description.slice(0, 88) : ""}
+   imgUrl={element.image_url? element.image_url : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"}
+   newsUrl={element.link ? element.link : ""}
+   author={element.creator ? element.creator : ""}
+   date={element.pubDate? element.pubDate : ""}
+   source={element.source_id && element.source_id ? element.source_id : ""}
+ />
+
+ 
+
+ 
+
+</div>
 );
 } else {
 // Handle the case where 'element' is undefined
@@ -138,7 +153,7 @@ return null;
 }
 })}
 
-          </div>
+       </div>):<TopNews/>
         }
       </div>
 
@@ -163,15 +178,5 @@ return null;
     );
   
 }
-News.defaultProps = {
-  country: "in",
-  pageSize: 8,
-  category: "technology",
-  totalResults: 0,
-};
-News.propTypes = {
-  country: PropTypes.string,
-  pageSize: PropTypes.number,
-  category: PropTypes.string,
-};
+
 export default News;
