@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Newsitem from "./Newsitem";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import TopNews from './TopNews'
 import axios from "axios";
@@ -20,7 +20,7 @@ const News=()=> {
   const [news, setnews] = useState([]);
   const location = useLocation()
   useEffect(() => {
-    console.log("mylocation",location.pathname)
+    // console.log("mylocation",location.pathname)
 
     const fetchData = async () => {
       try {
@@ -115,15 +115,15 @@ const News=()=> {
   
     return (
       <>
-        <h2 className="text-center my-3">
-          Star News - Top  Headlines
-        </h2>
+      
 
        
         <div className="container">
         {location.pathname !=="/"?
          ( <div className="row -3">
-            
+              <h2 className="text-center my-3">
+          Star News - Top  Headlines
+        </h2>
          {news.map((element) => {
 
 if (element) {
@@ -153,7 +153,7 @@ return null;
 }
 })}
 
-       </div>):<TopNews/>
+       </div>):<TopNews topNews={topnews} />
         }
       </div>
 

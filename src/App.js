@@ -1,13 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Navbar from "./component/Navbar";
 import News from "./component/News";
 import "./App.css"
+import NewsDetail from "./component/NewsDetail";
 // import axios from "axios";
  
 const App = () => {
 
-
+// let location =useLocation;
   // const fetchTopNews = async () => {
   //   try {
   //     const response = await axios.get('https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk');
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/health" element={<News />} />
           <Route path="/sports" element={<News />} />
           <Route path="/science" element={<News />} />
+          <Route path="/newsinfo" element={<NewsDetail />} />
 
           {/* <Route path="/business" element={<News news={businessnews} />} />
           <Route path="/food" element={<News news={foodnews} />} />
