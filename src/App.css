@@ -19,3 +19,49 @@
   box-shadow: 0 0 0.5rem black ;
   
 }
+
+
+
+/* error page */
+/* ErrorPage.css */
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f7f7f7; /* Light background color */
+}
+
+.error-content {
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff; /* White background color */
+}
+
+.error-code {
+  font-size: 3em;
+  color: #e74c3c; /* Red color for error code */
+}
+
+.error-message {
+  font-size: 1.2em;
+  color: #555;
+  margin-top: 10px;
+}
+
+.back-to-home {
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
+.back-to-home a {
+  color: #3498db; /* Blue color for link */
+  text-decoration: none;
+}
+
+.back-to-home a:hover {
+  text-decoration: underline;
+}

@@ -4,6 +4,7 @@ import Navbar from "./component/Navbar";
 import News from "./component/News";
 import "./App.css"
 import NewsDetail from "./component/NewsDetail";
+import ErrorPage from "./component/ErrorPage";
 // import axios from "axios";
  
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
           <Route path="/sports" element={<News />} />
           <Route path="/science" element={<News />} />
           <Route path="/newsinfo" element={<NewsDetail />} />
+          <Route path="*" element={<ErrorPage />} />
 
           {/* <Route path="/business" element={<News news={businessnews} />} />
           <Route path="/food" element={<News news={foodnews} />} />

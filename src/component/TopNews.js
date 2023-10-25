@@ -14,12 +14,10 @@ const defaultImage =
 
 const NewsItem = ({ news }) => {
   return (
-    <div className="card m-2 p-2 position-relative" style={{ width: "22rem" }}>
-      <h5>
-        <span className="badge bg-danger position-absolute ">{capitalizeFirstLetter(news.source_id)}</span>
-      </h5>
-      <div className="card-body mt-2">
-        <h5 className="card-title">{news.title}</h5>
+    <div className="card m-2 p-1 position-relative" style={{ width: "22rem" }}>
+   
+      <div className="card-body ">
+        <h6 className="card-title">{news.title}</h6>
         <p className="card-text">{getFirstCharacters(news.description)}</p>
         <a href="/" className="btn main-btn">
           Read more ...
@@ -66,7 +64,7 @@ return (
       <title>Placeholder</title>
       <rect width="100%" height="100%" fill="#55595c"></rect>
       <image
-        href={news.image_url}
+        href={news.image_url?news.image_url:defaultImage}
         width="100%"
         height="100%"
         preserveAspectRatio="xMidYMid slice"
@@ -86,7 +84,7 @@ const ImageNewsItem = ({ news}) => {
       <img
         src={news.image_url ? news.image_url : defaultImage}
         className="w-100"
-        style={{ height: "380px",  }}
+        style={{ height: "420px",  }}
         alt=".."
       ></img>
       <div
@@ -106,6 +104,7 @@ const ImageNewsItem = ({ news}) => {
 
 const TopNews = ({ topNews }) => {
   
+  //  Top news Components start
   return (
     topNews.length !== 0 && (
       <div>
@@ -113,7 +112,7 @@ const TopNews = ({ topNews }) => {
           {/* News 0 */}
           <div className="row p-2 p-md-3 mb-4  rounded text-body-emphasis bg-body-secondary">
             <div className="col-lg-8">
-              <ImageNewsItem news={topNews[0]} style={{ height: "380px" }} />
+              <ImageNewsItem news={topNews[0]} style={{ height: "420px" }} />
             </div>
 
             <div className="col-lg-4">
@@ -145,7 +144,7 @@ const TopNews = ({ topNews }) => {
                   <div className="col-sm-6" key={index}>
                     <div className="card m-2" style={{ width: "100%" }}>
                       <img
-                        src={topNews[index].image_url}
+                        src={topNews[index].image_url?topNews[index].image_url:defaultImage}
                         className="card-img-top"
                         style={{ height: "8rem" }}
                         alt="..."
@@ -158,7 +157,7 @@ const TopNews = ({ topNews }) => {
                           {capitalizeFirstLetter(topNews[index].source_id)}
                         </span>
                         <h5 className="card-title">{topNews[index].title}</h5>
-                        <p className="card-text">{topNews[index].description}</p>
+                        <p className="card-text">{getFirstCharacters(topNews[index].description)}</p>
                         <p className="card-text">
                           <small className="text-body-secondary">
                             {topNews[index].pubDate}
@@ -168,7 +167,7 @@ const TopNews = ({ topNews }) => {
                           rel="noreferrer"
                           href={"newsUrl"}
                           target="_blank"
-                          className="btn btn-dark btn-sm"
+                          className="btn main-btn"
                         >
                           Read more
                         </a>
