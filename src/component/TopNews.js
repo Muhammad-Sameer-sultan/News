@@ -86,11 +86,11 @@ const ImageNewsItem = ({ news}) => {
         className="w-100"
         style={{ height: "420px",  }}
         alt=".."
-      ></img>
-      <div
-        className="position-absolute bg-dark bg-gradient bg-opacity-75 p-3 text-light w-100"
+           className="position-absolute bg-dark bg-gradient bg-opacity-75 p-3 text-light w-100"
         style={{ bottom: "0" }}
-      >
+    ></img>
+      <div
+     >
         <h5 className="display-6 fst-italic">{news.title}</h5>
         <p className="lead mb-0">
           <Link to={"/newsinfo"} className=" fw-bold text-light">

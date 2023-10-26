@@ -17,8 +17,8 @@ const ErrorPage = ({ errorCode, errorMessage }) => {
 };
 
 ErrorPage.defaultProps = {
-  errorCode: '500',
-  errorMessage: 'Oops! Something went wrong.',
+  errorCode: '404',
+  errorMessage: 'Oops! Not Found.',
 };
 
 export default ErrorPage;

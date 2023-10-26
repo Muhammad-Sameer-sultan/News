@@ -1,8 +1,17 @@
+  @import url('https://fonts.googleapis.com/css2?family=Eczar&family=Roboto:ital@1&display=swap');
+
 *{
   margin:0;
   padding: 0;
   box-sizing: border-box;
   /* background: #000; */
+}
+html{
+
+  font-family: 'Eczar', serif;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Roboto', sans-serif;
 }
 
 .main-btn{

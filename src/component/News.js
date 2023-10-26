@@ -19,137 +19,178 @@ const News = () => {
   const [sportsnews, setsportsnews] = useState([]);
   const [sciencenews, setsciencenews] = useState([]);
   const [news, setnews] = useState([]);
-  const [NextPage, setNextPage] = useState({business:"",entertainment:"",food:"",health:"",sports:"",science:""});
-  const [isGoNextPage, setisGoNextPage] = useState(false)
-  const [loading, setloading] = useState(false)
+  const [NextPage, setNextPage] = useState({
+    business: "",
+    entertainment: "",
+    food: "",
+    health: "",
+    sports: "",
+    science: "",
+  });
+  const [isGoNextPage, setisGoNextPage] = useState(false);
+  const [loading, setloading] = useState(false);
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
   const location = useLocation();
 
+  function countWords(paragraph, getWords) {
+    // Split the paragraph into words
+    const words = paragraph.split(/\s+/);
 
-  const moreArticles=()=>{
-    setisGoNextPage(true);
+    // Count the total number of words
+    const wordCount = words.length;
+
+    // Return the first 40 words
+    if (wordCount <= getWords) {
+      return words.join(" ");
+    } else {
+      return words.slice(0, getWords).join(" ");
+    }
   }
-  
+
+  const moreArticles = () => {
+    setisGoNextPage(true);
+  };
+
   useEffect(() => {
     // console.log("mylocation",location.pathname)
 
     const fetchData = async () => {
       try {
-
         const category = location.pathname.slice(1);
-        console.log(category,"nextpage",NextPage);
+        console.log(category, "nextpage", NextPage);
 
         let fetchedNews = [];
 
         switch (category) {
           case "business":
             if (businessnews.length === 0) {
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               setbusinessnews(fetchedNews);
-            }
-            else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              setbusinessnews([...businessnews,...fetchedNews]);
-              fetchedNews=businessnews
-              setisGoNextPage(false)
-            }
-           else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              setbusinessnews([...businessnews, ...fetchedNews]);
+              fetchedNews = businessnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = businessnews;
             }
             break;
           case "entertainment":
             if (entertainmentnews.length === 0) {
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               setentertainmentnews(fetchedNews);
-            } 
-            else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              setentertainmentnews([...entertainmentnews,...fetchedNews]);
-              fetchedNews=entertainmentnews
-              setisGoNextPage(false)
-            }
-           
-            else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              setentertainmentnews([...entertainmentnews, ...fetchedNews]);
+              fetchedNews = entertainmentnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = entertainmentnews;
             }
             break;
           case "food":
             if (foodnews.length === 0) {
-              fetchedNews = await  fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               setfoodnews(fetchedNews);
-            } 
-            else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              setfoodnews([...foodnews,...fetchedNews]);
-              fetchedNews=foodnews
-              setisGoNextPage(false)
-            }
-        
-            else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              setfoodnews([...foodnews, ...fetchedNews]);
+              fetchedNews = foodnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = foodnews;
             }
             break;
           case "health":
             if (healthnews.length === 0) {
-              fetchedNews = await  fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               sethealthnews(fetchedNews);
-            }   else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              healthnews([...healthnews,...fetchedNews]);
-              fetchedNews=healthnews
-              setisGoNextPage(false)
-            }
-            else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              healthnews([...healthnews, ...fetchedNews]);
+              fetchedNews = healthnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = healthnews;
             }
             break;
           case "sports":
             if (sportsnews.length === 0) {
-              fetchedNews = await  fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               setsportsnews(fetchedNews);
-            } 
-            else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              setsportsnews([...sportsnews,...fetchedNews]);
-              fetchedNews=sportsnews
-              setisGoNextPage(false)
-            }
-           
-            else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              setsportsnews([...sportsnews, ...fetchedNews]);
+              fetchedNews = sportsnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = sportsnews;
             }
             break;
           case "science":
             if (sciencenews.length === 0) {
-              fetchedNews = await  fetchNewsByCategory(category,NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               setsciencenews(fetchedNews);
-            }
-            else if(isGoNextPage){
-              fetchedNews = await fetchNewsByCategory(category,NextPage[category]);
-              setsciencenews([...sciencenews,...fetchedNews]);
-              fetchedNews=sciencenews
-              setisGoNextPage(false)
-            }
-             else {
+            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
+              setsciencenews([...sciencenews, ...fetchedNews]);
+              fetchedNews = sciencenews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = sciencenews;
             }
+
             break;
+
           default:
-            if (topnews.length ===0) {
-              fetchedNews = await fetchNewsByCategory("top",NextPage["top"]);
+            if (topnews.length === 0) {
+              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
               settopnews(fetchedNews);
               // setisGoNextPage(true)
-            }
-            else if(isGoNextPage  ){
-              console.log("isgo condition")
-              fetchedNews = await fetchNewsByCategory("top",NextPage["top"]);
-              settopnews([...topnews,...fetchedNews]);
-              fetchedNews=topnews
-              setisGoNextPage(false)
-            }
-           
-             else {
+            } else if (isGoNextPage) {
+              console.log("isgo condition");
+              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
+              settopnews([...topnews, ...fetchedNews]);
+              fetchedNews = topnews;
+              setisGoNextPage(false);
+            } else {
               fetchedNews = topnews;
             }
 
@@ -163,11 +204,11 @@ const News = () => {
     };
 
     fetchData();
-  }, [location,isGoNextPage]);
+  }, [location, isGoNextPage]);
 
-  const fetchNewsByCategory = async (category,nextPageString) => {
+  const fetchNewsByCategory = async (category, nextPageString) => {
     try {
-      setloading(true)
+      setloading(true);
       const response = await axios.get(
         !nextPageString
           ? `https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk&language=en&category=${category}`
@@ -175,18 +216,17 @@ const News = () => {
       );
 
       const newsData = response.data;
-      setNextPage({...NextPage,[category]: newsData.nextPage});
-      setloading(false)
-      console.log(category,"==>",newsData.results)
+      setNextPage({ ...NextPage, [category]: newsData.nextPage });
+      setloading(false);
+      console.log(category, "==>", newsData.results);
       return newsData.results;
     } catch (error) {
       console.error(`Error fetching ${category} news data:`, error);
-      navigate("*")
+      navigate("*");
       return [];
     }
   };
 
-console.log(topnews)
   return (
     <>
       <div className="container mb-5">
@@ -199,7 +239,7 @@ console.log(topnews)
                 return (
                   <div className="col-md-4" key={element.article_id}>
                     <Newsitem
-                      title={element.title ? element.title.slice(0, 30) : ""}
+                      title={element.title ? countWords(element.title, 5) : ""}
                       description={
                         element.description
                           ? element.description.slice(0, 88)
@@ -210,7 +250,7 @@ console.log(topnews)
                           ? element.image_url
                           : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
                       }
-                      newsUrl={element.link ? element.link : ""}
+                      newsDetail={element}
                       author={element.creator ? element.creator : ""}
                       date={element.pubDate ? element.pubDate : ""}
                       source={
@@ -230,15 +270,19 @@ console.log(topnews)
         ) : (
           <TopNews topNews={topnews} />
         )}
-        {loading && <Spinner/>}
-          {
-            !loading && 
-            <button className="btn  btn-success mb-5" onClick={()=>{moreArticles()
-              console.log("button click")}}>Read more</button>
-            }
-            </div>
-      
-
+        {loading && <Spinner />}
+        {!loading && (
+          <button
+            className="btn  btn-success mb-5"
+            onClick={() => {
+              moreArticles();
+              console.log("button click");
+            }}
+          >
+            Read more
+          </button>
+        )}
+      </div>
 
       {/* </InfiniteScroll> */}
       {/* <div className="d-flex justify-content-between">
