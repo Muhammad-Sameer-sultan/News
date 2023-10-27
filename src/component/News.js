@@ -258,6 +258,7 @@ const News = () => {
                           ? element.source_id
                           : ""
                       }
+                      category_path={news}
                     />
                   </div>
                 );

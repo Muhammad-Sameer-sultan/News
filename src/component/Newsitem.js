@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const NewsItem = (props) => {
-  const { title, description, imgUrl, newsDetail, author, date, source } = props;
+  const { title, description, imgUrl, newsDetail, author, date, source ,category_path} = props;
   const navigate = useNavigate();
 
   const navigateToNewsDetail = () => {
@@ -10,7 +10,7 @@ const NewsItem = (props) => {
 
     // const ti="check"
     console.log(newsDetail)
-    navigate("/newsinfo", { state: newsDetail  });
+    navigate("/newsinfo", { state: {newsDetail,category_path}  });
   };
   
   return (
