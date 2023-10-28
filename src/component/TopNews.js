@@ -16,7 +16,7 @@ const defaultImage =
 
 const NewsItem = ({ news }) => {
   return (
-    <div className="card m-2 p-1 position-relative" style={{ width: "22rem" }}>
+    <div className="card m-2 p-1 position-relative " style={{ width: "22rem" }}>
       <div className="card-body ">
         <h6 className="card-title">{news.title}</h6>
         <p className="card-text">{getFirstCharacters(news.description)}</p>
@@ -29,8 +29,8 @@ const NewsItem = ({ news }) => {
 };
 const Verical2Card = ({ news, style }) => {
   return (
-    <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div className="col p-4 d-flex flex-column position-static">
+    <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
+      <div className="col p-4 d-flex flex-column position-static ">
         <strong className="d-inline-block mb-2 text-primary-emphasis ">
           <span className="badge bg-danger">
             {capitalizeFirstLetter(news.source_id)}

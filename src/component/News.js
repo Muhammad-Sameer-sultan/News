@@ -25,6 +25,7 @@ const News = () => {
   const [sportsnews, setsportsnews] = useState([]);
   const [sciencenews, setsciencenews] = useState([]);
   const [NextPage, setNextPage] = useState({
+    top:"",
     business: "",
     entertainment: "",
     food: "",
@@ -172,11 +173,15 @@ const News = () => {
             break;
 
           default:
-            if (topnews.length === 0) {
+            if (topnews.length < 20) {
               fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
               settopnews(fetchedNews);
-              // setisGoNextPage(true)
-            } else if (isGoNextPage) {
+              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
+              settopnews((prevNews) => [...prevNews, ...topnews]);           
+              fetchedNews = topnews;
+              console.log(fetchedNews)
+          // setisGoNextPage(true)
+            }else if (isGoNextPage) {
               console.log("isgo condition");
               fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
               settopnews([...topnews, ...fetchedNews]);
