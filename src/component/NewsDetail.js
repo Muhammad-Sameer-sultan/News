@@ -5,22 +5,17 @@ const NewsDetail = () => {
   // const navigate=useNavigate();
   const location = useLocation();
   const data = location.state;
-  let { category_path:relativeNews, newsDetail:  news } = data;
-  const [selectedCategory, setSelectedCategory] = useState(relativeNews);
+  let { category_path:news, newsDetail:othernews   } = data;
 
-useEffect(() => {
-  
-  // console.log(category_path)
-
-
-}, [selectedCategory])
-
+  console.log("othernews",othernews)
+  console.log("news",news)
+const [targetNews, settargetNews] = useState(othernews)
 
 
   const newsView=(category_path)=>{
     // navigate("/newsinfo", { state: {category_path,news}  });
-    setSelectedCategory(category_path)
-    console.log("first")
+    console.log(category_path)
+    settargetNews(category_path)
   }
   
 
@@ -54,23 +49,23 @@ useEffect(() => {
       <div className="row g-3">
         <div className="col-lg-9">
           <div className="position-sticky  " style={{top:"2rem"}}>
-            <h3 className="badge bg-success">{news.category}</h3>
+            <h3 className="badge bg-success">{targetNews.category}</h3>
             <img
-              src={news.image_url ? news.image_url : defaultImage}
+              src={targetNews.image_url ? targetNews.image_url : defaultImage}
               className="w-100"
               style={{ height: "480px" }}
               alt=".."
             ></img>
-            <h2 className="mt-3 display-6 fst-italic">{news.title}</h2>
+            <h2 className="mt-3 display-6 fst-italic">{targetNews.title}</h2>
             <p>
-              {news.pubDate}
-              <span className="ms-3 text-bold">{news.country}</span>{" "}
+              {targetNews.pubDate}
+              <span className="ms-3 text-bold">{targetNews.country}</span>{" "}
             </p>
             <div>
               <i className="bi bi-person-fill"></i>{" "}
-              <span>{news.creator ? news.creator : "Anonyms"}</span>
+              <span>{targetNews.creator ? targetNews.creator : "Anonyms"}</span>
             </div>
-            <p className="text-emphasis lh-5 fs-5 my-3 ">{news.description}</p>
+            <p className="text-emphasis lh-5 fs-5 my-3 ">{targetNews.description}</p>
           </div>
         </div>
 
@@ -79,11 +74,11 @@ useEffect(() => {
          <div className="position-sticky  " style={{top:"2rem"}}>
          <h3 className="text-underline text-danger">Relative News</h3>
           {
-            selectedCategory.slice(0,6).map((news)=>((
-              <div key={news.article_id} className="card  p-3 m-2  position-relative">
-              <div className="d-lg-flex gap-2">
+            news.slice(0,6).map((news)=>((
+              <div key={news.article_id} className="card  p-3 m-2 clickView  position-relative">
+              <div className="d-lg-flex gap-2 ">
                 <img
-                  src={news.image_url}
+                  src={news.image_url?news.image_url:defaultImage}
                   className="img-fluid d-inline"
                   alt=".."
                   style={{ width: "35%" }}
