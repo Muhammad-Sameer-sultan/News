@@ -5,32 +5,19 @@ import News from "./component/News";
 import "./App.css"
 import NewsDetail from "./component/NewsDetail";
 import ErrorPage from "./component/ErrorPage";
+import NewsProvider from "./component/context/NewsProvider";
+import Footer from "./component/Footer";
 // import axios from "axios";
  
 const App = () => {
 
-// let location =useLocation;
-  // const fetchTopNews = async () => {
-  //   try {
-  //     const response = await axios.get('https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk');
-  //     const newsData = response.data;
-  //     settopnews(newsData.results);
-  //   } catch (error) {
-  //     console.error('Error fetching top news data:', error);
-  //   }
-  // };
 
-  
-
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   fetchTopNews();
-  // }, []);
+ console.log("Iswork App")
 
  
 
   return (
+      <NewsProvider>
     <div>
       <Router>
         <Navbar />
@@ -51,8 +38,10 @@ const App = () => {
           <Route path="/sports" element={<News news={sportsnews} />} />
           <Route path="/science" element={<News news={sciencenews} />} /> */}
         </Routes>
+      <Footer/>
       </Router>
     </div>
+    </NewsProvider>
   );
 };
 

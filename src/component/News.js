@@ -6,11 +6,17 @@ import { useLocation, useNavigate } from "react-router-dom";
 import TopNews from "./TopNews";
 import axios from "axios";
 import ErrorPage from "./ErrorPage";
+import { useContext } from "react";
+import NewsContext from "./context/context";
 
-// import Spinner from "./Spinner";
-// import InfiniteScroll from "react-infinite-scroll-component";
+
 
 const News = () => {
+
+// import from NewsContext 
+  const {countWords,news,setnews}=useContext(NewsContext)
+
+  // states
   const [topnews, settopnews] = useState([]);
   const [businessnews, setbusinessnews] = useState([]);
   const [entertainmentnews, setentertainmentnews] = useState([]);
@@ -18,7 +24,6 @@ const News = () => {
   const [healthnews, sethealthnews] = useState([]);
   const [sportsnews, setsportsnews] = useState([]);
   const [sciencenews, setsciencenews] = useState([]);
-  const [news, setnews] = useState([]);
   const [NextPage, setNextPage] = useState({
     business: "",
     entertainment: "",
@@ -33,20 +38,7 @@ const News = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  function countWords(paragraph, getWords) {
-    // Split the paragraph into words
-    const words = paragraph.split(/\s+/);
-
-    // Count the total number of words
-    const wordCount = words.length;
-
-    // Return the first 40 words
-    if (wordCount <= getWords) {
-      return words.join(" ");
-    } else {
-      return words.slice(0, getWords).join(" ");
-    }
-  }
+ 
 
   const moreArticles = () => {
     setisGoNextPage(true);
@@ -269,7 +261,7 @@ const News = () => {
             })}
           </div>
         ) : (
-          <TopNews topNews={topnews} />
+          <TopNews topNews={news} />
         )}
         {loading && <Spinner />}
         {!loading && (

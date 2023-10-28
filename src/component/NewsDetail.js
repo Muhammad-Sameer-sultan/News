@@ -53,7 +53,7 @@ useEffect(() => {
     <main className="container mb-5">
       <div className="row g-3">
         <div className="col-lg-9">
-          <div className="">
+          <div className="position-sticky  " style={{top:"2rem"}}>
             <h3 className="badge bg-success">{news.category}</h3>
             <img
               src={news.image_url ? news.image_url : defaultImage}

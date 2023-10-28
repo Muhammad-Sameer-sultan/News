@@ -2,14 +2,16 @@ import React  from "react";
 import { Link } from "react-router-dom";
 
 const  Navbar =()=> {
-  // static propTypes = {};
+
 
   
     return (
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className={`navbar navbar-expand-lg bg-light`}>
         <div className="container-fluid nav-scroller py-1 mb-3 border-bottom">
-          <Link className="nav-item  navbar-brand nav-link link-body-emphasis py-1" to="/">
+          <Link 
+          className="nav-item  navbar-brand nav-link link-body-emphasis py-1" to="/">
             Top-Star News
+            
           </Link>
           <button
             className="navbar-toggler"
