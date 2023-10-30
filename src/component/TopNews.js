@@ -139,7 +139,7 @@ const TopNews = ({ topNews }) => {
           <div className="row g-5">
             <div className="col-md-8">
               <div className="row">
-                {[5, 6, 7, 8].map((index) => (
+                {[5, 6, 7, 8,9,10,11].map((index) => (
                   <div className="col-sm-6" key={index}>
                     <div className="card m-2" style={{ width: "100%" }}>
                       <img
@@ -186,6 +186,10 @@ const TopNews = ({ topNews }) => {
             {/* About Sider */}
             <div className="col-md-4">
               {/* Add your About Sider component here */}
+              {topNews.slice(11).map((news1) => {
+    console.log(news1);
+    return <NewsItem key={news1.title}  news={news1} />;
+  })}
             </div>
           </div>
         </main>

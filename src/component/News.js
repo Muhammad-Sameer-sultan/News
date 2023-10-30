@@ -5,7 +5,6 @@ import Spinner from "./Spinner";
 import { useLocation, useNavigate } from "react-router-dom";
 import TopNews from "./TopNews";
 import axios from "axios";
-import ErrorPage from "./ErrorPage";
 import { useContext } from "react";
 import NewsContext from "./context/context";
 
@@ -25,8 +24,8 @@ const News = () => {
   const [sportsnews, setsportsnews] = useState([]);
   const [sciencenews, setsciencenews] = useState([]);
   const [NextPage, setNextPage] = useState({
-    top:"",
     business: "",
+    top:"",
     entertainment: "",
     food: "",
     health: "",
@@ -50,7 +49,10 @@ const News = () => {
 
     const fetchData = async () => {
       try {
-        const category = location.pathname.slice(1);
+        let category = location.pathname.slice(1);
+        if(category===""){
+          category="top"
+        }
         console.log(category, "nextpage", NextPage);
 
         let fetchedNews = [];
@@ -171,19 +173,39 @@ const News = () => {
             }
 
             break;
+            // case "top":
+            //   if (sciencenews.length === 0) {
+            //     fetchedNews = await fetchNewsByCategory(
+            //       category,
+            //       NextPage[category]
+            //     );
+            //     settopnews(fetchedNews);
+            //   } else if (isGoNextPage) {
+            //     fetchedNews = await fetchNewsByCategory(
+            //       category,
+            //       NextPage[category]
+            //     );
+            //     settopnews([...settopnews, ...fetchedNews]);
+            //     fetchedNews = settopnews;
+            //     setisGoNextPage(false);
+            //   } else {
+            //     fetchedNews = sciencenews;
+            //   }
+  
+            //   break;
 
           default:
-            if (topnews.length < 20) {
-              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
+            if (topnews.length < 10) {
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               settopnews(fetchedNews);
-              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
-              settopnews((prevNews) => [...prevNews, ...topnews]);           
-              fetchedNews = topnews;
-              console.log(fetchedNews)
-          // setisGoNextPage(true)
-            }else if (isGoNextPage) {
+              setisGoNextPage(true);
+
+              }else if (isGoNextPage) {
               console.log("isgo condition");
-              fetchedNews = await fetchNewsByCategory("top", NextPage["top"]);
+              fetchedNews = await fetchNewsByCategory(category, NextPage[category]);
               settopnews([...topnews, ...fetchedNews]);
               fetchedNews = topnews;
               setisGoNextPage(false);
@@ -201,7 +223,7 @@ const News = () => {
     };
 
     fetchData();
-  }, [location, isGoNextPage]);
+  }, [location, isGoNextPage,news]);
 
   const fetchNewsByCategory = async (category, nextPageString) => {
     try {
@@ -214,8 +236,9 @@ const News = () => {
 
       const newsData = response.data;
       setNextPage({ ...NextPage, [category]: newsData.nextPage });
+      console.log("My news array",NextPage)
+      console.log("My news result",newsData.results)
       setloading(false);
-      console.log(category, "==>", newsData.results);
       return newsData.results;
     } catch (error) {
       console.error(`Error fetching ${category} news data:`, error);
@@ -223,10 +246,11 @@ const News = () => {
       return [];
     }
   };
-
+  console.log("My news array",news)
   return (
     <>
       <div className="container mb-5">
+      {console.log(location.pathname)}
         {location.pathname !== "/" ? (
           <div className="row -3">
             <h2 className="text-center my-3">Star News - Top Headlines</h2>
