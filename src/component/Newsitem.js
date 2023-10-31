@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import NewsContext from "./context/context";
 
 const NewsItem = (props) => {
   const { title, description, imgUrl, newsDetail, author, date, source ,category_path} = props;
+  const {defaultImage}=useContext(NewsContext);
   const navigate = useNavigate();
 
   const navigateToNewsDetail = () => {
@@ -16,11 +18,12 @@ const NewsItem = (props) => {
   return (
     <div className="card m-2" style={{ width: "18rem" }}>
       <img
-        src={imgUrl}
+        src={imgUrl?imgUrl:defaultImage}
         className="card-img-top"
         style={{ height: "8rem" }}
         alt="..."
       />
+      
       <div className="card-body">
         <span
           className="position-absolute top-0  badge rounded-pill bg-danger"

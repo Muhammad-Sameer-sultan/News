@@ -7,6 +7,11 @@ const NewsProvider = ({children}) => {
 
   const [news, setnews] = useState([]);
   
+  const defaultImage =
+  "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg";
+
+// components
+
 
 
 // count Words in your content
@@ -21,7 +26,7 @@ const NewsProvider = ({children}) => {
   }
 
   return (
-    <NewsContext.Provider value={{countWords,news,setnews}}>
+    <NewsContext.Provider value={{countWords,news,setnews,defaultImage}}>
         {children}
     </NewsContext.Provider>
   )
