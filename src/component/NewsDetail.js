@@ -16,6 +16,7 @@ const [targetNews, settargetNews] = useState(othernews)
     // navigate("/newsinfo", { state: {category_path,news}  });
     console.log(category_path)
     settargetNews(category_path)
+    window.scrollTo(0, 0);
   }
   
 
@@ -65,7 +66,7 @@ const [targetNews, settargetNews] = useState(othernews)
               <i className="bi bi-person-fill"></i>{" "}
               <span>{targetNews.creator ? targetNews.creator : "Anonyms"}</span>
             </div>
-            <p className="text-emphasis lh-5 fs-5 my-3 ">{targetNews.description}</p>
+            <p className="text-emphasis lh-5 fs-5 my-3 ">{targetNews.content}</p>
           </div>
         </div>
 

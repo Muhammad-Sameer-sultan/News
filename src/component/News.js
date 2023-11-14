@@ -7,13 +7,11 @@ import TopNews from "./TopNews";
 import axios from "axios";
 import { useContext } from "react";
 import NewsContext from "./context/context";
-
-
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = () => {
-
-// import from NewsContext 
-  const {countWords,news,setnews}=useContext(NewsContext)
+  // import from NewsContext
+  const { countWords, news, setnews } = useContext(NewsContext);
 
   // states
   const [topnews, settopnews] = useState([]);
@@ -23,9 +21,10 @@ const News = () => {
   const [healthnews, sethealthnews] = useState([]);
   const [sportsnews, setsportsnews] = useState([]);
   const [sciencenews, setsciencenews] = useState([]);
+  const [articleLength, setarticleLength] = useState(200)
   const [NextPage, setNextPage] = useState({
     business: "",
-    top:"",
+    top: "",
     entertainment: "",
     food: "",
     health: "",
@@ -38,8 +37,6 @@ const News = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
- 
-
   const moreArticles = () => {
     setisGoNextPage(true);
   };
@@ -50,8 +47,8 @@ const News = () => {
     const fetchData = async () => {
       try {
         let category = location.pathname.slice(1);
-        if(category===""){
-          category="top"
+        if (category === "") {
+          category = "top";
         }
         console.log(category, "nextpage", NextPage);
 
@@ -173,26 +170,26 @@ const News = () => {
             }
 
             break;
-            // case "top":
-            //   if (sciencenews.length === 0) {
-            //     fetchedNews = await fetchNewsByCategory(
-            //       category,
-            //       NextPage[category]
-            //     );
-            //     settopnews(fetchedNews);
-            //   } else if (isGoNextPage) {
-            //     fetchedNews = await fetchNewsByCategory(
-            //       category,
-            //       NextPage[category]
-            //     );
-            //     settopnews([...settopnews, ...fetchedNews]);
-            //     fetchedNews = settopnews;
-            //     setisGoNextPage(false);
-            //   } else {
-            //     fetchedNews = sciencenews;
-            //   }
-  
-            //   break;
+          // case "top":
+          //   if (sciencenews.length === 0) {
+          //     fetchedNews = await fetchNewsByCategory(
+          //       category,
+          //       NextPage[category]
+          //     );
+          //     settopnews(fetchedNews);
+          //   } else if (isGoNextPage) {
+          //     fetchedNews = await fetchNewsByCategory(
+          //       category,
+          //       NextPage[category]
+          //     );
+          //     settopnews([...settopnews, ...fetchedNews]);
+          //     fetchedNews = settopnews;
+          //     setisGoNextPage(false);
+          //   } else {
+          //     fetchedNews = sciencenews;
+          //   }
+
+          //   break;
 
           default:
             if (topnews.length < 10) {
@@ -202,10 +199,12 @@ const News = () => {
               );
               settopnews(fetchedNews);
               setisGoNextPage(true);
-
-              }else if (isGoNextPage) {
+            } else if (isGoNextPage) {
               console.log("isgo condition");
-              fetchedNews = await fetchNewsByCategory(category, NextPage[category]);
+              fetchedNews = await fetchNewsByCategory(
+                category,
+                NextPage[category]
+              );
               settopnews([...topnews, ...fetchedNews]);
               fetchedNews = topnews;
               setisGoNextPage(false);
@@ -223,11 +222,12 @@ const News = () => {
     };
 
     fetchData();
-  }, [location, isGoNextPage,news]);
+    
+  }, [location, isGoNextPage, news]);
 
   const fetchNewsByCategory = async (category, nextPageString) => {
     try {
-      setloading(true);
+      // setloading(true);
       const response = await axios.get(
         !nextPageString
           ? `https://newsdata.io/api/1/news?apiKey=pub_3059747c8dce5c0006938d70116095290373e&country=pk&language=en&category=${category}`
@@ -236,9 +236,10 @@ const News = () => {
 
       const newsData = response.data;
       setNextPage({ ...NextPage, [category]: newsData.nextPage });
-      console.log("My news array",NextPage)
-      console.log("My news result",newsData.results)
-      setloading(false);
+      setarticleLength(newsData.totalResults)         
+      console.log("My news array", NextPage);
+      console.log("My news result", newsData);
+      // setloading(false);
       return newsData.results;
     } catch (error) {
       console.error(`Error fetching ${category} news data:`, error);
@@ -246,65 +247,63 @@ const News = () => {
       return [];
     }
   };
-  console.log("My news array",news)
+  console.log("My news array", news);
   return (
     <>
-      <div className="container mb-5">
-      {console.log(location.pathname)}
-        {location.pathname !== "/" ? (
-          <div className="row -3">
-            <h2 className="text-center my-3">Star News - Top Headlines</h2>
-            {/* {news.length===0 && <div className="text-info fs-4">No Latest news avaliable for news<div/>} */}
-            {news.map((element) => {
-              if (element) {
-                return (
-                  <div className="col-md-4" key={element.article_id}>
-                    <Newsitem
-                      title={element.title ? countWords(element.title, 5) : ""}
-                      description={
-                        element.description
-                          ? element.description.slice(0, 88)
-                          : ""
-                      }
-                      imgUrl={
-                        element.image_url
-                          ? element.image_url
-                          : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
-                      }
-                      newsDetail={element}
-                      author={element.creator ? element.creator : ""}
-                      date={element.pubDate ? element.pubDate : ""}
-                      source={
-                        element.source_id && element.source_id
-                          ? element.source_id
-                          : ""
-                      }
-                      category_path={news}
-                    />
-                  </div>
-                );
-              } else {
-                // Handle the case where 'element' is undefined
-                return null;
-              }
-            })}
-          </div>
-        ) : (
-          <TopNews topNews={news} />
-        )}
-        {loading && <Spinner />}
-        {!loading && (
-          <button
-            className="btn  btn-success mb-5"
-            onClick={() => {
-              moreArticles();
-              console.log("button click");
-            }}
-          >
-            Read more
-          </button>
-        )}
-      </div>
+      <InfiniteScroll
+        dataLength={articleLength}
+        next={moreArticles}
+        hasMore={true}
+        loader={<Spinner/>}
+      >
+        <div className="container mb-5">
+          {console.log(location.pathname)}
+          {location.pathname !== "/" ? (
+            <div className="row ">
+              <h2 className="text-center my-3">Star News - Top Headlines</h2>
+              {/* {news.length===0 && <div className="text-info fs-4">No Latest news avaliable for news<div/>} */}
+              {news.map((element) => {
+                if (element) {
+                  return (
+                    <div className="col-md-4" key={element.article_id}>
+                      <Newsitem
+                        title={
+                          element.title ? countWords(element.title, 5) : ""
+                        }
+                        description={
+                          element.description
+                            ? countWords(element.description, 30)
+                            : ""
+                        }
+                        imgUrl={
+                          element.image_url
+                            ? element.image_url
+                            : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+                        }
+                        newsDetail={element}
+                        author={element.creator ? element.creator : ""}
+                        date={element.pubDate ? element.pubDate : ""}
+                        source={
+                          element.source_id && element.source_id
+                            ? element.source_id
+                            : ""
+                        }
+                        category_path={news}
+                      />
+                    </div>
+                  );
+                } else {
+                  // Handle the case where 'element' is undefined
+                  return null;
+                }
+              })}
+            </div>
+          ) : (
+            <TopNews topNews={news} />
+          )}
+        
+        </div>
+      </InfiniteScroll>
 
       {/* </InfiniteScroll> */}
       {/* <div className="d-flex justify-content-between">

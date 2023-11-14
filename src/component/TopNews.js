@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import Newsitem from "./Newsitem"
+import { Link, useNavigate } from "react-router-dom";
+import Newsitem from "./Newsitem";
 import NewsContext from "./context/context";
-
-
 
 function getFirstCharacters(para) {
   if (para) {
@@ -15,10 +13,19 @@ const capitalizeFirstLetter = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-
-
-
 const TopNews = ({ topNews }) => {
+  const navigate = useNavigate();
+
+  const navigateToNewsDetail = (targetnews) => {
+    // Use navigate to go to the "/newsinfo" route and pass the newsDetail as state
+
+    console.log(topNews);
+    const newsDetail = targetnews;
+    const category_path = topNews;
+    // const ti="check"
+    console.log(newsDetail, category_path);
+    navigate("/newsinfo", { state: { newsDetail, category_path } });
+  };
   //  Top news Components start
   // Calculate the lengths for each new array
   // const totalLength = topNews.length;
@@ -47,22 +54,30 @@ const TopNews = ({ topNews }) => {
   //     .slice(5, 10)
   //     .forEach((element) => <NewsCardItem key={element.id} news={element} />);
   // }
-  const {defaultImage,countWords}=useContext(NewsContext)
+  const { defaultImage, countWords } = useContext(NewsContext);
 
   const NewsCardItem = ({ news }) => {
     return (
-      <div className="card m-2 p-1 position-relative " style={{ width: "22rem" }}>
+      <div
+        className="card m-2 p-1 position-relative "
+        style={{ width: "22rem" }}
+      >
         <div className="card-body ">
           <h6 className="card-title">{news.title}</h6>
           <p className="card-text">{getFirstCharacters(news.description)}</p>
-          <a href="/" className="btn main-btn">
+          <button
+            onClick={() => {
+              navigateToNewsDetail(news);
+            }}
+            className="btn main-btn"
+          >
             Read more ...
-          </a>
+          </button>
         </div>
       </div>
     );
   };
-  
+
   const Verical2Card = ({ news }) => {
     return (
       <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
@@ -72,20 +87,19 @@ const TopNews = ({ topNews }) => {
               {capitalizeFirstLetter(news.source_id)}
             </span>
           </strong>
-          <h3 className="mb-0">{news.title}</h3>
+          <h3 className="mb-0">{countWords(news.title, 5)}</h3>
           <div className="mb-1 text-body-secondary">{news.pubDate}</div>
           <p className="card-text mb-auto">
-            {getFirstCharacters(news.description)}
+            {countWords(news.description, 20)}
           </p>
-          <a
-            href={"/"}
-            className="icon-link gap-1 icon-link-hover stretched-link"
+          <button
+            onClick={() => {
+              navigateToNewsDetail(news);
+            }}
+            className=" btn text-success text-underline icon-link gap-1 icon-link-hover stretched-link"
           >
             Continue reading
-            <svg className="bi">
-              <use xlinkHref="#chevron-right"></use>
-            </svg>
-          </a>
+          </button>
         </div>
         <div className="col-auto d-none d-lg-block">
           <svg
@@ -130,9 +144,14 @@ const TopNews = ({ topNews }) => {
         >
           <h5 className="display-6 fst-italic fs-4 ">{news.title}</h5>
           <p className="lead mb-0">
-            <Link to={"/newsinfo"} className=" fw-bold text-light">
+            <button
+              onClick={() => {
+                navigateToNewsDetail(news);
+              }}
+              className="btn fw-bold text-light"
+            >
               Continue reading...
-            </Link>
+            </button>
           </p>
         </div>
       </div>
@@ -147,7 +166,10 @@ const TopNews = ({ topNews }) => {
           {/* News 0 */}
           <div className="row p-2 p-md-3 mb-4  rounded text-body-emphasis bg-body-secondary">
             <div className="col-lg-8">
-              <ImageNewsCardItem news={topNews[0]} style={{ height: "420px" }} />
+              <ImageNewsCardItem
+                news={topNews[0]}
+                style={{ height: "420px" }}
+              />
             </div>
 
             <div className="col-lg-4">
@@ -201,14 +223,12 @@ const TopNews = ({ topNews }) => {
                             {topNews[index].pubDate}
                           </small>
                         </p>
-                        <a
-                          rel="noreferrer"
-                          href={"newsUrl"}
-                          target="_blank"
+                        <button
+                         onClick={()=>{navigateToNewsDetail(topNews[index])}}
                           className="btn main-btn"
                         >
                           Read more
-                        </a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -220,54 +240,57 @@ const TopNews = ({ topNews }) => {
             <div className="col-md-4">
               {topNews.slice(12, 19).map((news1) => {
                 console.log(news1);
-                return <NewsCardItem className="col" key={news1.title} news={news1} />;
+                return (
+                  <NewsCardItem
+                    className="col"
+                    key={news1.title}
+                    news={news1}
+                  />
+                );
               })}
             </div>
           </div>
-        
+
           {/* for remaing news */}
           {/* <div>{remainingNews}</div> */}
           {/* Ensure these adjustments, and if there are any specific errors or
           issues you are encountering, feel free to share more details! */}
         </main>
         <div className="row">
-          
-                     {topNews.slice(19).map((element) => {
-              if (element) {
-                return (
-                  <div className="col-md-4" key={element.article_id}>
-                    <Newsitem
-                      title={element.title ? countWords(element.title, 5) : ""}
-                      description={
-                        element.description
-                          ? element.description.slice(0, 88)
-                          : ""
-                      }
-                      imgUrl={
-                        element.image_url
-                          ? element.image_url
-                          : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
-                      }
-                      newsDetail={element}
-                      author={element.creator ? element.creator : ""}
-                      date={element.pubDate ? element.pubDate : ""}
-                      source={
-                        element.source_id && element.source_id
-                          ? element.source_id
-                          : ""
-                      }
-
-                      category_path={topNews}
-                    />
-                  </div>
-                );
-              } else {
-                // Handle the case where 'element' is undefined
-                return null;
-              }
-            })}
-            
-          </div>
+          {topNews.slice(19).map((element) => {
+            if (element) {
+              return (
+                <div className="col-md-4" key={element.article_id}>
+                  <Newsitem
+                    title={element.title ? countWords(element.title, 5) : ""}
+                    description={
+                      element.description
+                        ? element.description.slice(0, 88)
+                        : ""
+                    }
+                    imgUrl={
+                      element.image_url
+                        ? element.image_url
+                        : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"
+                    }
+                    newsDetail={element}
+                    author={element.creator ? element.creator : ""}
+                    date={element.pubDate ? element.pubDate : ""}
+                    source={
+                      element.source_id && element.source_id
+                        ? element.source_id
+                        : ""
+                    }
+                    category_path={topNews}
+                  />
+                </div>
+              );
+            } else {
+              // Handle the case where 'element' is undefined
+              return null;
+            }
+          })}
+        </div>
       </div>
     )
   );

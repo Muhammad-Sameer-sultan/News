@@ -16,7 +16,7 @@ const NewsItem = (props) => {
   };
   
   return (
-    <div className="card m-2" style={{ width: "18rem" }}>
+    <div className="card m-2  " style={{ width: "22rem" }}>
       <img
         src={imgUrl?imgUrl:defaultImage}
         className="card-img-top"
@@ -35,7 +35,7 @@ const NewsItem = (props) => {
         <p className="card-text">{description}</p>
         <p className="card-text">
           <small className="text-body-secondary">
-            BY {author ? author : "Anonymous"} Last updatedP {date ? date : "just Now"}
+            BY {author ? author : "Anonymous"} <br/>Last updated {date ? date : "just Now"}
           </small>
         </p>
 

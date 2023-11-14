@@ -21,7 +21,7 @@ const NewsProvider = ({children}) => {
     if (wordCount <= getWords) {
       return words.join(" ");
     } else {
-      return words.slice(0, getWords).join(" ");
+      return words.slice(0, getWords).join(" ")+"...";
     }
   }
 
